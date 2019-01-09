@@ -47,9 +47,7 @@ describe "Grocer" do
     end
   end
 
-
   describe "#apply_coupons" do
-
     context "base case - with perfect coupon (number of items identical):" do
       before(:each) do
         @avocado = find_item('AVOCADO')
@@ -60,7 +58,7 @@ describe "Grocer" do
       end
 
       it "adds a new key, value pair to the cart hash called 'ITEM NAME W/COUPON'" do
-         expect(@avocado_result.keys).to include("AVOCADO W/COUPON")
+        expect(@avocado_result.keys).to include("AVOCADO W/COUPON")
       end
 
       it "adds the coupon price to the property hash of couponed item" do
@@ -98,6 +96,7 @@ describe "Grocer" do
         expect(cheese_result["CHEESE W/COUPON"][:count]).to eq(1)
         expect(cheese_result["CHEESE W/COUPON"][:clearance]).to eq(false)
       end
+
       it "doesn't break if the coupon doesn't apply to any items" do
         cheese = find_item('CHEESE')
         cart = Array.new(2, cheese)
@@ -155,7 +154,6 @@ describe "Grocer" do
   end
 
   describe "#apply_clearance" do
-
     it "takes 20% off price if the item is on clearance" do
       cart = [find_item('TEMPEH')]
       consolidated_cart = consolidate_cart(cart)
@@ -172,15 +170,12 @@ describe "Grocer" do
       result.each do |name, properties|
         expect(properties[:price]).to eq(clearance_prices[name])
       end
-
     end
   end
 
   describe "#checkout" do
 
      describe "base case (no clearance, no coupons)" do
-    describe "base case (no clearance, no coupons)" do
-
       it "calls on #consolidate_cart before calculating the total for one item" do
         cart = [find_item('BEETS')]
         result = consolidate_cart(cart)
@@ -264,7 +259,6 @@ describe "Grocer" do
         expect(self).to receive(:consolidate_cart).with(cart).and_return(result)
         expect(checkout(cart, [])).to eq(5.00)
       end
-
     end
 
     describe "coupons:" do
