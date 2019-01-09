@@ -1,5 +1,3 @@
-require 'pry'
-
 def consolidate_cart(cart)
 cart_hash = {}
   cart.uniq.each do |item|
