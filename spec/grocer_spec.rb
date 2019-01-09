@@ -178,12 +178,9 @@ describe "Grocer" do
 
   describe "#checkout" do
 
-<<<<<<< HEAD
      describe "base case (no clearance, no coupons)" do
-=======
     describe "base case (no clearance, no coupons)" do
 
->>>>>>> 993cd6632db601daf21787501609b244b840dc22
       it "calls on #consolidate_cart before calculating the total for one item" do
         cart = [find_item('BEETS')]
         result = consolidate_cart(cart)
