@@ -23,7 +23,7 @@ describe "Grocer" do
   end
 
   describe "#consolidate_cart" do
-    it "adds a count of one to each item when there are no duplicates" do
+     it "adds a count of one to each item when there are no duplicates" do
       cart = [find_item('TEMPEH'), find_item('PEANUTBUTTER'), find_item('ALMONDS')]
       result = consolidate_cart(cart)
       result.each do |item, attributes|
@@ -149,6 +149,7 @@ describe "Grocer" do
         expect(two_coupon_result["AVOCADO"][:price]).to eq(3.00)
         expect(two_coupon_result["AVOCADO W/COUPON"][:count]).to eq(2)
       end
+
     end
   end
 
@@ -174,7 +175,7 @@ describe "Grocer" do
 
   describe "#checkout" do
 
-    describe "base case (no clearance, no coupons)" do
+     describe "base case (no clearance, no coupons)" do
       it "calls on #consolidate_cart before calculating the total for one item" do
         cart = [find_item('BEETS')]
         result = consolidate_cart(cart)
